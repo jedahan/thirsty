@@ -7,8 +7,6 @@ After drinking water, run the `hydrate` command to remove the reminder
 
 ## Options
 
-`HYDRATE_INTERVAL` number of seconds to remind oneself to hydrate
+`GEOMETRY_INTERVAL_HYDRATE` number of minutes to remind oneself to hydrate
 
-`HYDRATE_THIRSTY` icon to show when thirsty
-
-`HYDRATE_HYDRATED` icon to show when hydrated
+`GEOMETRY_SYMBOL_HYDRATE` icon to show when thirsty

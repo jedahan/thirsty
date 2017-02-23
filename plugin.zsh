@@ -1,13 +1,20 @@
-hydrate_interval=${HYDRATE_INTERVAL:-10800} # Set time interval in seconds
-hydrate_file=${HYDRATE_FILE:-$TMPDIR/.water}
-hydrate_thirsty=${HYDRATE_THIRSTY:-💧}
-hydrate_hydrated=${HYDRATE_HYDRATED}
+GEOMETRY_INTERVAL_HYDRATE=${GEOMETRY_INTERVAL_HYDRATE:-30} # minutes
+GEOMETRY_SYMBOL_HYDRATE=${GEOMETRY_SYMBOL_HYDRATE:-💧}
 
-check_thirst() {
-  \ls $water_file(ms+$water_time) 2>/dev/null && echo $water_thirsty || echo $water_hydrated
+geometry_prompt_hydrate_setup() {
+  test -f $TMPDIR/water || touch $TMPDIR/water
+}
+
+geometry_prompt_hydrate_check() {
+  test -f $TMPDIR/water(mm+$GEOMETRY_INTERVAL_HYDRATE)
+}
+
+geometry_prompt_hydrate_render() {
+  echo $GEOMETRY_SYMBOL_HYDRATE
 }
 
 hydrate() {
-  touch $water_file
+  touch $TMPDIR/water
 }
 
+geometry_plugin_register hydrate
